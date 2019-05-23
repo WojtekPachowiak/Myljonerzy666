@@ -1,2 +1,4 @@
-# Myljonerzy666
-dla piotra i kingi
+M i l i o n e r z y
+- Kinga Flak
+- Wojtek Pachowiak
+- Piotr Jaworski
