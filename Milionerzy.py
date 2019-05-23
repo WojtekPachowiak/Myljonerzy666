@@ -132,6 +132,24 @@ def o_ile_gram():
     if licznik_dobrych_odpowiedzi == 11:
         print("Grasz o MILION!\n")
 
+def pytanie_huberta(x):
+    prawdopodobienstwo = random.randint(0,10)
+    if licznik_dobrych_odpowiedzi == 11:
+        pytanie = str(input("Hubert: To jest pytanie o MILION. \nDefinitywnie to jest Twoja odpowiedź 'T/'N'?"))
+        if pytanie == "T" or pytanie == "t":
+            return x
+        else:
+            y = input("Hubert: Która odpowiedź jest wiec prawidłowa? ")
+            return y
+    elif prawdopodobienstwo <= 5:
+        pytanie = str(input("Hubert: Definitywnie 'T/'N'?"))
+        if pytanie == "T" or pytanie == "t":
+            return x
+        else:
+            y = input("Hubert: No to jaka jest prawidłowa odpowiedź? ")
+            return y
+    else:
+        return x
 
 
 while True:
@@ -143,10 +161,13 @@ while True:
             o_ile_gram()
             for i in losowe_pytanie[0:5]:
                 print(i)
-            odpowiedz_uczestnika = input("Podaj prawidłową odpowiedź: ")
+
+            odp = input("Podaj prawidłową odpowiedź: ")
+            odpowiedz_uczestnika = pytanie_huberta(odp)
+
             if odpowiedz_uczestnika == losowe_pytanie[5]:
                         licznik_dobrych_odpowiedzi +=1
-                        print("Dobra odpowiedź\n")
+                        print("Dobra odpowiedź!\n")
                         print(licznik_dobrych_odpowiedzi)
                         time.sleep(2)
                         os.system('cls')
@@ -163,10 +184,13 @@ while True:
             lista_już_wylosowanych.append(losowe_pytanie)
             for i in losowe_pytanie[0:5]:
                 print(i)
-            odpowiedz_uczestnika = input("Podaj prawidłową odpowiedź: ")
+
+            odp = input("Podaj prawidłową odpowiedź: ")
+            odpowiedz_uczestnika = pytanie_huberta(odp)
+
             if odpowiedz_uczestnika == losowe_pytanie[5]:
                         licznik_dobrych_odpowiedzi +=1
-                        print("Dobra odpowiedź\n")
+                        print("Dobra odpowiedź!\n")
                         print(licznik_dobrych_odpowiedzi)
                         time.sleep(2)
                         os.system('cls')
@@ -183,10 +207,14 @@ while True:
             lista_już_wylosowanych.append(losowe_pytanie)
             for i in losowe_pytanie[0:5]:
                 print(i)
-            odpowiedz_uczestnika = input("Podaj prawidłową odpowiedź: ")
+            print("")
+
+            odp = input("Podaj prawidłową odpowiedź: ")
+            odpowiedz_uczestnika = pytanie_huberta(odp)
+
             if odpowiedz_uczestnika == losowe_pytanie[5]:
                         licznik_dobrych_odpowiedzi +=1
-                        print("Dobra odpowiedź\n")
+                        print("Dobra odpowiedź!\n")
                         print(licznik_dobrych_odpowiedzi)
                         time.sleep(2)
                         os.system('cls')
@@ -198,7 +226,8 @@ while True:
 
 
     if licznik_dobrych_odpowiedzi == 12:
-        print("Brawo! Wygrałeś!")
+        print("Brawo! Wygrałeś MILION ZŁOTYCH!")
+        break
 
 
 #####       http://testwiedzy.pl/print/print_test/29791.html      #######
