@@ -6,7 +6,6 @@ import os
 import winsound
 from funkcje import *
 import pygame
-from meh import*
 #### LOSOWE PYTANIA ##########
 licznik_dobrych_odpowiedzi = 0
 
