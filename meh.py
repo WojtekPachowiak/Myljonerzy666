@@ -4,10 +4,17 @@ import time
 #NIE BYŁO TESTOWANE
 def pol_na_pol(pytanie):
     print("Pół na pół.\nCzy aby na pewno jest łatwiej?")
-    print(pytanie[3], pytanie[5])
+    if pytanie[5] == 'A':
+        print("Pozostałe odpowiedzi to:", pytanie[1]) #pokazuje dobrą odp i później dodam randomową z reszty nieprawidłowych
+    elif pytanie[5] == 'B':
+        print("Pozostałe odpowiedzi to:", pytanie[2])
+    elif pytanie[5] == 'C':
+        print("Pozostałe odpowiedzi to:", pytanie[3])
+    elif pytanie[5] == 'D':
+        print("Pozostałe odpowiedzi to:", pytanie[4])
     print("Tylko, która z tych dwóch odpowiedzi jest prawidłowa?")
     odpowiedz = input()
-    if odpowiedź == pytanie[3]:
+    if odpowiedź == : #później wrzucić to nieprawidłową odp
         print("Niestety, to nie jest poprawna odpowiedź")
     else:
         print("Gratulacje! Udało się Panu!")#tu musi być jeszcze przekierowanie do pytania
@@ -20,7 +27,7 @@ def telefon(pytanie):
         print(".")
     poprawne = random.random()
     if poprawne < 0.7:
-        print("Konfucjusz uważa, że prawidłowa odpowiedź to: ", pytanie[5], "Czy zgadzasz się z nim?(T/N)")#i tu
+        print("Konfucjusz uważa, że prawidłowa odpowiedź to: ", pytanie[5], "Czy zgadzasz się z nim?(T/N)")#i tu #tu też dam pętle wait for it
         decyzja = input()
         if decyzja == "T":
             print("To prawidłowa odpowiedź!")#i tu
