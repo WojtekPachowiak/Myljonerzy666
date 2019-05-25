@@ -39,7 +39,7 @@ def pol_na_pol(pytanie):
         else:
             print(Hu, "No cóż, nie udało się.")
 
-
+#to jeszcze do przerobienia
 def telefon(pytanie):
     print("Zatem zadzwońmy do Twojego przyjaciela")
     for i in range (3):
