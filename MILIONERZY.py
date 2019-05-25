@@ -1,4 +1,3 @@
-# Myljonerzy666
 ########## MODUŁY ############
 import random
 import time
@@ -134,6 +133,16 @@ def pytanie_huberta(x):
     else:
         return x
 
+#odpalam muzę
+pygame.mixer.init()
+pygame.mixer.music.load('intro.mp3')
+pygame.mixer.music.play(999)
+#winsound.PlaySound("intro.wav",  winsound.SND_ALIAS | winsound.SND_ASYNC)
+#włączam intro
+intro()
+os.system('cls')
+start = input() #to musi tutaj być ~~ Piotr
+witaj()
 
 
 
