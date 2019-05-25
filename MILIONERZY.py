@@ -10,12 +10,43 @@ import pygame
 licznik_dobrych_odpowiedzi = 0
 
 
-lista_easy = [["Czym Chińczycy tradycyjnie jadają potrawy z ryżu?",
+lista_easy = [
+["Czym Chińczycy tradycyjnie jadają potrawy z ryżu?",
 "A - łyżkami",
 "B - wykałaczkami",
 "C - widelcami",
 "D - pałeczkami",
 "D"],
+["Jaka część mowy odpowiada na pytania: kto, co?",
+"A - przymiotnik",
+"B - czasonik",
+"C - rzeczownik",
+"D - przysłówek",
+"C"],
+["Kto ma łeb obdarty?",
+"A - kto późno przychodzi",
+"B - kto jest krótko ostrzyżony",
+"C - kto gra w karty",
+"D - kto ma nos zadarty",
+"C"],
+["Która z tych małp jest największa?",
+"A - orangutan",
+"B - kapucynka",
+"C - szympans",
+"D - goryl",
+"D"],
+["W jakim mieście jest Wawel?",
+"A - we Wrocławiu",
+"B - w Warszawie",
+"C - w Poznaniu",
+"D - w Krakowie",
+"D"],
+["Jakie są najwyższe góry na świecie?",
+"A - Tatry",
+"B - Himalaje",
+"C - Pireneje",
+"D - Alpy",
+"B"],
 ["Ile miesięcy liczy kwartał?",
 "A - 2",
 "B - 3",
@@ -60,18 +91,58 @@ lista_easy = [["Czym Chińczycy tradycyjnie jadają potrawy z ryżu?",
 "A"]]
 
 
-lista_medium = [["Kto wypowiedział słowa: \"Ja nie z soli ani z roli, ale z tego, co mnie boli\"?",
+
+
+
+
+lista_medium = [
+["Kto wypowiedział słowa: \"Ja nie z soli ani z roli, ale z tego, co mnie boli\"?",
 "A - Jan III Sobieski",
 "B - Bartosz Głowacki",
 "C - Stefan Czarniecki",
 "D - Józef Piłsudzki",
 "C"],
-["Pytanie za 32 000 zł: Wafel pieczony z delikatnego ciasta w specjalnych foremkach to:",
+["Wafel pieczony z delikatnego ciasta w specjalnych foremkach to:",
 "A - bajgiel",
 "B - andrut",
 "C - bakława",
 "D - beza",
-"B"]]
+"B"]
+["Gdzie leży Arktyka?",
+"A - wokół bieguna południowego",
+"B - wokół bieguna północnego",
+"C - na równiku",
+"D - na Księżycu",
+"B"],
+["Ile jest znaków zodiaku?",
+"A - 12",
+"B - 15",
+"C - 16",
+"D - 10",
+"A"],
+["Bohaterowie Jeziora Łabędziego Piotra Czajkowskiego to?",
+"A - Odetta, Zygfryd, Wolfgang",
+"B - Ludmiła, Rusłan, Igor",
+"C - Rosa, Gaetano, Eusebio",
+"D - Anna, Władysław, Jan",
+"A"],
+["W którym filmie Andrzeja Wajdy zobaczymy reżysera jako samego siebie?",
+"A - W Tataraku",
+"B - w Ziemi Obiecanej",
+"C - W Człowieku z żelaza",
+"D - W Powidokach",
+"A"],
+["Kto miał ustsza słodsze od malin?",
+"A - Kasia Cichopek",
+"B - Towarysz Stalin",
+"C - Izabela Łęcka",
+"D - Ewa Chodakowska",
+"B"],]
+
+
+
+
+
 
 lista_hard = [["Wysoka czapka futrzana noszona wWielkiej Brytanii przez reprezentacyjne oddziały gwardii to:",
 "A - kołpak",
@@ -102,7 +173,19 @@ lista_hard = [["Wysoka czapka futrzana noszona wWielkiej Brytanii przez reprezen
 "B - Sjuksami i Szejenami",
 "C - Szoszonami i Wronami",
 "D - Huronami i Mohikanami",
-"B"]]
+"B"],
+["Które z poniższych jest najliczniejsze",
+"A - Fotodżoker",
+"B - Multidżoker",
+"C - Dżokerro",
+"D - Minidżoker",
+"B"],
+["Co powiedział Zbigniew Stonoga w słynnej przemowie do narodu?",
+"A - \"geje, tfu\"",
+"B - \"We all live in a yellow submarine\"",
+"C - \"Będzie was PiS ruchał w dupe\"",
+"D - \"Kościół, szkoła, strzelnica\"",
+"C"]]
 
 
 
