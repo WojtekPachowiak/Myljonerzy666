@@ -66,7 +66,7 @@ lista_medium = [["Kto wypowiedział słowa: \"Ja nie z soli ani z roli, ale z te
 "C - Stefan Czarniecki",
 "D - Józef Piłsudzki",
 "C"],
-["Pytanie za 32 000 zł: Wafel pieczony z delikatnego ciasta w specjalnych foremkach to:",
+["Wafel pieczony z delikatnego ciasta w specjalnych foremkach to:",
 "A - bajgiel",
 "B - andrut",
 "C - bakława",
@@ -136,22 +136,28 @@ def pytanie_huberta(x):
 
 
 
-#odpalam muzę
-pygame.mixer.init()
-pygame.mixer.music.load('intro.mp3')
-pygame.mixer.music.play(999)
-#winsound.PlaySound("intro.wav",  winsound.SND_ALIAS | winsound.SND_ASYNC)
-#włączam intro
-intro()
-os.system('cls')
-start = input() #to musi tutaj być ~~ Piotr
-witaj()
 
+gramy_dalej = ""
 
 
 while True:
+
     ###### PYTANIA LOSOWANE Z LISTY ŁATWYCH ###### ~ Piotr
+
+
+
     if licznik_dobrych_odpowiedzi <= 6:
+
+        if licznik_dobrych_odpowiedzi >= 2:
+            gramy_dalej = input("Hubert: Masz zagwarantowane 1000zł. Czy gramy dalej? 'T/'N'?")
+            if gramy_dalej == "T" or gramy_dalej == "t":
+                 print("Hubert: OK! Następne pytanie...")
+                 pass
+
+            elif gramy_dalej == "N" or gramy_dalej == "n":
+                print("Hubert: No to nie! Wracasz do domu z zagwarantowanym 1000zł!")
+                break
+
         losowe_pytanie = random.choice(lista_easy)
         if losowe_pytanie not in lista_już_wylosowanych:
             lista_już_wylosowanych.append(losowe_pytanie)
@@ -159,16 +165,20 @@ while True:
             for i in losowe_pytanie[0:5]:
                 print(i)
 
+
             odp = input("Podaj prawidłową odpowiedź: ")
             odpowiedz_uczestnika = pytanie_huberta(odp)
 
-            if odpowiedz_uczestnika == losowe_pytanie[5]:
+            if odpowiedz_uczestnika == losowe_pytanie[5] or odpowiedz_uczestnika == losowe_pytanie[5].lower():
                         licznik_dobrych_odpowiedzi +=1
                         print("Dobra odpowiedź!\n")
                         time.sleep(2)
                         os.system('cls')
             else:
-                print("Zła odpowiedź. Przegrałeś")
+                if licznik_dobrych_odpowiedzi < 2:
+                    print("Zła odpowiedź. Przegrałeś")
+                elif licznik_dobrych_odpowiedzi >= 2:
+                    print("Zła odpowiedź. Przegrałeś, ale wracasz do domu z zagwarantowanym 1000zł")
                 break
                 print("")
 
@@ -176,29 +186,49 @@ while True:
 
     ###### PYTANIE LOSOWANE Z LISTY ŚREDNICH ###### ~ Piotr
     elif licznik_dobrych_odpowiedzi in range(7,9):
+        gramy_dalej = input("Hubert: Masz zagwarantowane 40000zł. Czy gramy dalej? 'T/'N'?")
+        if gramy_dalej == "T" or gramy_dalej == "t":
+             print("Hubert: OK! Następne pytanie...")
+             pass
+
+        elif gramy_dalej == "N" or gramy_dalej == "n":
+            print("Hubert: No to nie! Wracasz do domu z zagwarantowanym 40000zł!")
+            break
+
         losowe_pytanie = random.choice(lista_medium)
         if losowe_pytanie not in lista_już_wylosowanych:
             lista_już_wylosowanych.append(losowe_pytanie)
             for i in losowe_pytanie[0:5]:
                 print(i)
 
+
             odp = input("Podaj prawidłową odpowiedź: ")
             odpowiedz_uczestnika = pytanie_huberta(odp)
 
-            if odpowiedz_uczestnika == losowe_pytanie[5]:
+            if odpowiedz_uczestnika == losowe_pytanie[5] or odpowiedz_uczestnika == losowe_pytanie[5].lower():
                         licznik_dobrych_odpowiedzi +=1
                         print("Dobra odpowiedź!\n")
                         time.sleep(2)
                         os.system('cls')
             else:
-                print("Zła odpowiedź. Przegrałeś")
+                print("Zła odpowiedź. Przegrałeś, ale wracasz do domu z zagwarantowanym 40000zł")
                 break
                 print("")
 
 
 
     ###### PYTANIE LOSOWANE Z LISTY TRUDNYCH ###### ~ Piotr
+
     elif licznik_dobrych_odpowiedzi in range(9,12):
+        gramy_dalej = input("Hubert: Masz zagwarantowane 40000zł. Czy gramy dalej? 'T/'N'?")
+        if gramy_dalej == "T" or gramy_dalej == "t":
+             print("Hubert: OK! Następne pytanie...")
+             pass
+
+        elif gramy_dalej == "N" or gramy_dalej == "n":
+            print("Hubert: No to nie! Wracasz do domu z zagwarantowanym 40000zł!")
+            break
+
         losowe_pytanie = random.choice(lista_hard)
         if losowe_pytanie not in lista_już_wylosowanych:
             lista_już_wylosowanych.append(losowe_pytanie)
@@ -209,13 +239,14 @@ while True:
             odp = input("Podaj prawidłową odpowiedź: ")
             odpowiedz_uczestnika = pytanie_huberta(odp)
 
-            if odpowiedz_uczestnika == losowe_pytanie[5]:
+            if odpowiedz_uczestnika == losowe_pytanie[5] or odpowiedz_uczestnika == losowe_pytanie[5].lower():
                         licznik_dobrych_odpowiedzi +=1
                         print("Dobra odpowiedź!\n")
                         time.sleep(2)
                         os.system('cls')
             else:
-                print("Zła odpowiedź. Przegrałeś")
+                if licznik_dobrych_odpowiedzi < 12:
+                    print("Zła odpowiedź. Przegrałeś, ale wracasz do domu z zagwarantowanym 40000zł")
                 break
                 print("")
 
