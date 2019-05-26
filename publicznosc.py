@@ -53,12 +53,7 @@ def pytanie_do_publicznosci_easy(losowe_pytanie):
 
 
 
-pytanie_do_publicznosci_easy(x)
-
-print("""
-
-""")
-
+#pytanie_do_publicznosci_easy(x)
 
 ############ŚREDNIE PYTANIE########################
 
@@ -104,11 +99,9 @@ def pytanie_do_publicznosci_medium(losowe_pytanie):
 
 
 
-pytanie_do_publicznosci_medium(x)
 
-print("""
 
-""")
+
 ############TRUDNE PYTANIE########################
 
 
@@ -152,6 +145,3 @@ def pytanie_do_publicznosci_hard(losowe_pytanie):
     zmienna = random.choice(lista_mozliwych_odpowiedzi)
     lista_mozliwych_odpowiedzi.remove(zmienna)
     print(zmienna,"-",procent_odp3,"%")
-
-
-pytanie_do_publicznosci_hard(x)

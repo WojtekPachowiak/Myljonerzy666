@@ -4,8 +4,17 @@ import random
 import time
 import os
 import winsound
-from funkcje import *
 import pygame
+from colorama import init
+from colorama import Fore, Back, Style
+from termcolor import colored
+init()
+
+
+from funkcje import *
+from publicznosc import *
+from kingakola import *
+
 #### LOSOWE PYTANIA ##########
 licznik_dobrych_odpowiedzi = 0
 
@@ -107,7 +116,7 @@ lista_medium = [
 "B - andrut",
 "C - bakława",
 "D - beza",
-"B"]
+"B"],
 ["Gdzie leży Arktyka?",
 "A - wokół bieguna południowego",
 "B - wokół bieguna północnego",
@@ -187,71 +196,188 @@ lista_hard = [["Wysoka czapka futrzana noszona wWielkiej Brytanii przez reprezen
 "D - \"Kościół, szkoła, strzelnica\"",
 "C"]]
 
-
-
- #tutaj trafiają te pytania, które już zostały wylosowane ~ Piotr
+#tutaj trafiają te pytania, które już zostały wylosowane ~ Piotr
 lista_już_wylosowanych = []
 
 
-#ta funkcja wyświetla odpowiedni napis w zależności od stanu licznik dobrych odpowiedzi! ~ Piotr
 
 
+################################################################################
+# Stworzyłem klasę ~ Piotr
+### Poniższe zmienne mówią nam, CZY KOŁO RATUNKOWE ZOSTAŁO WYKORZYSTANE, czy też NIE! ### ~ Piotr
+class q():
+
+    czy_1 = 0
+    czy_2 = 0
+    czy_3 = 0
+
+    def __init__(self):
+        self.czy_1 = 0
+        self.czy_2 = 0
+        self.czy_3 = 0
+
+    def zwroc_czy_1(self):
+        return self.czy_1
+
+    def zwroc_czy_1(self):
+        return self.czy_2
+
+    def zwroc_czy_1(self):
+        return self.czy_3
+
+    def kola_ratunkowe(self,x,losowe):
+        if x == '1' and self.czy_1 == 0:
+            self.czy_1 = self.czy_1 + 1
+            if licznik_dobrych_odpowiedzi <= 6:
+                print("(Pytanie do publiczności!)")
+                pytanie_do_publicznosci_easy(losowe)
+            elif licznik_dobrych_odpowiedzi in range(7,9):
+                print("(Pytanie do publiczności!)")
+                pytanie_do_publicznosci_medium(losowe)
+            elif licznik_dobrych_odpowiedzi in range(9,12):
+                print("(Pytanie do publiczności!)")
+                pytanie_do_publicznosci_hard(losowe)
+            x = input(Hub + str("Cóż więc zaznaczamy? "))
+            wynik = self.pytanie_huberta(x,losowe)
+            return wynik
+
+        if x == '1' and self.czy_1 == 1:
+            print("(Wykorzystałeś już pytanie do publiczności!)")
+            x = input(Hub + str("Cóż więc zaznaczamy? "))
+            wynik = self.pytanie_huberta(x,losowe)
+            return wynik
 
 
-def pytanie_huberta(x):
-    prawdopodobienstwo = random.randint(0,10)
-    if licznik_dobrych_odpowiedzi == 11:
-        pytanie = str(input("Hubert: To jest pytanie o MILION. \nCzy definitywnie to jest Twoja odpowiedź 'T/'N'?"))
-        if pytanie == "T" or pytanie == "t":
-            return x
+        if x == '2' and self.czy_2 == 0:
+            self.czy_2 = self.czy_2 + 1
+            print("(Telefon do przyjaciela!)")
+            telefon(losowe)
+            # [[[[[[[[TUTAJ WSTAWIĆ FUNKCJĘ TELEFON!]]]]]]]
+
+            x = input(Hub + str("No to jaka jest prawidłowa odpowiedź? "))
+            wynik = self.pytanie_huberta(x,losowe)
+            return wynik
+        if x == '2' and self.czy_2 == 1:
+            print("(Wykorzystałeś już telefon do przyjaciela!)")
+            x = input(Hub + str("A więc, którą odpowiedź zaznaczasz? "))
+            wynik = self.pytanie_huberta(x,losowe)
+            return wynik
+
+
+        if x == '3' and self.czy_3 == 0:
+            self.czy_3 = self.czy_3 + 1
+            print("(Pół na pół!)")
+            pol_na_pol(losowe)
+            x = input(Hub + str("No to jaka jest prawidłowa odpowiedź? "))
+            wynik = self.pytanie_huberta(x,losowe)
+            return wynik
+        if x == '3' and self.czy_3 == 1:
+            print("(Wykorzystałeś już pół na pół!)")
+            x = input(Hub + str("A więc, którą odpowiedź zaznaczasz? "))
+            wynik = self.pytanie_huberta(x,losowe)
+            return wynik
+
+
+    def pytanie_huberta(self,x,pytanie):
+        if x == 'A' or x == 'B' or x == 'C' or x == 'D':
+            prawdopodobienstwo = random.randint(0,10)
+            if licznik_dobrych_odpowiedzi == 11:
+                pytanie = str(input(Hub + str("To jest pytanie o MILION. \nCzy definitywnie to jest Twoja odpowiedź 'T/'N'?")))
+                if pytanie == "T" or pytanie == "t":
+                    return x
+                else:
+                    x = input(Hub + str("Która odpowiedź jest więc prawidłowa?"))
+                    return x
+            elif prawdopodobienstwo <= 5:
+                pytanie = str(input(Hub + str("Definitywnie 'T/'N'?")))
+                if pytanie == "T" or pytanie == "t":
+                    return x
+                else:
+                    x = input(Hub + str("No to jaka jest prawidłowa odpowiedź? "))
+                    return x
+            else:
+                return x
+        elif x == '1' or x =='2' or x == '3':
+            wynik = self.kola_ratunkowe(x,pytanie)
+            return wynik
+################################################################################
         else:
-            y = input("Hubert: Która odpowiedź jest wiec prawidłowa? ")
-            return y
-    elif prawdopodobienstwo <= 5:
-        pytanie = str(input("Hubert: Definitywnie 'T/'N'?"))
-        if pytanie == "T" or pytanie == "t":
-            return x
-        else:
-            y = input("Hubert: No to jaka jest prawidłowa odpowiedź? ")
-            return y
-    else:
-        return x
+            while True:
+                teksty_huberta = "Jaka więc jest poprawna odpowiedź?","Hmmm, a więc co zechcesz zaznaczyć?","No to która?","Którą zaznaczamy?"
+                los = random.choice(teksty_huberta)
+                x = input(Hub + los + str(" "))
+                if x == 'A' or x == 'B' or x == 'C' or x == 'D':
+                    return x
+                elif x == '1' or x =='2' or x == '3':
+                    wynik = self.kola_ratunkowe(x,pytanie)
+                    return wynik
+que = q() #Uruchamiam klasę.
 
 
+def utwor(y):
+    if y == 0:
+        pygame.mixer.init()
+        pygame.mixer.music.load('tlo.mp3')
+        pygame.mixer.music.play(999)
+    if y == 7:
+        pygame.mixer.init()
+        pygame.mixer.music.load('tlo2.mp3')
+        pygame.mixer.music.play(999)
+    if y == 11:
+        pygame.mixer.init()
+        pygame.mixer.music.load('tlo3.mp3')
+        pygame.mixer.music.play(999)
+    if y == 12:
+        pygame.mixer.init()
+        pygame.mixer.music.load('intro.mp3')
+        pygame.mixer.music.play(999)
 
-#odpalam muzę
+####### W TYM MIEJSCU ODPALAM MUZYKĘ ORAZ ŁADUJĘ INTRO I POWITANIE! ###########
+
+
 pygame.mixer.init()
 pygame.mixer.music.load('intro.mp3')
 pygame.mixer.music.play(999)
 #winsound.PlaySound("intro.wav",  winsound.SND_ALIAS | winsound.SND_ASYNC)
-#włączam intro
+
 intro()
 os.system('cls')
 start = input() #to musi tutaj być ~~ Piotr
 witaj()
+Hub = colored("         Hubert: ","yellow")
 
+###############################################################################
 
 
 while True:
     ###### PYTANIA LOSOWANE Z LISTY ŁATWYCH ###### ~ Piotr
+    utwor(licznik_dobrych_odpowiedzi)
     if licznik_dobrych_odpowiedzi <= 6:
         losowe_pytanie = random.choice(lista_easy)
         if losowe_pytanie not in lista_już_wylosowanych:
             lista_już_wylosowanych.append(losowe_pytanie)
+            baner()
+            print()
+
             o_ile_gram(licznik_dobrych_odpowiedzi)
-            for i in losowe_pytanie[0:5]:
-                print(i)
+            for i in range(0,len(losowe_pytanie)-1):
+                if i == 0:
+                    print(losowe_pytanie[i])
+                    print()
+                else:
+                    print(losowe_pytanie[i])
+            print()
 
             odp = input("Podaj prawidłową odpowiedź: ")
-            odpowiedz_uczestnika = pytanie_huberta(odp)
+            odpowiedz_uczestnika = que.pytanie_huberta(odp,losowe_pytanie)
 
             if odpowiedz_uczestnika == losowe_pytanie[5]:
                         licznik_dobrych_odpowiedzi +=1
-                        print("Dobra odpowiedź!\n")
+                        dobrze()
                         time.sleep(2)
                         os.system('cls')
             else:
-                print("Zła odpowiedź. Przegrałeś")
+                przegrales()
                 break
                 print("")
 
@@ -262,19 +388,27 @@ while True:
         losowe_pytanie = random.choice(lista_medium)
         if losowe_pytanie not in lista_już_wylosowanych:
             lista_już_wylosowanych.append(losowe_pytanie)
-            for i in losowe_pytanie[0:5]:
-                print(i)
+            baner()
+            print()
+            o_ile_gram(licznik_dobrych_odpowiedzi)
+            for i in range(0,len(losowe_pytanie)-1):
+                if i == 0:
+                    print(losowe_pytanie[i])
+                    print()
+                else:
+                    print(losowe_pytanie[i])
+            print()
 
             odp = input("Podaj prawidłową odpowiedź: ")
-            odpowiedz_uczestnika = pytanie_huberta(odp)
+            odpowiedz_uczestnika = que.pytanie_huberta(odp,losowe_pytanie)
 
             if odpowiedz_uczestnika == losowe_pytanie[5]:
                         licznik_dobrych_odpowiedzi +=1
-                        print("Dobra odpowiedź!\n")
+                        dobrze()
                         time.sleep(2)
                         os.system('cls')
             else:
-                print("Zła odpowiedź. Przegrałeś")
+                przegrales()
                 break
                 print("")
 
@@ -285,25 +419,34 @@ while True:
         losowe_pytanie = random.choice(lista_hard)
         if losowe_pytanie not in lista_już_wylosowanych:
             lista_już_wylosowanych.append(losowe_pytanie)
-            for i in losowe_pytanie[0:5]:
-                print(i)
-            print("")
+            baner()
+            print()
+            o_ile_gram(licznik_dobrych_odpowiedzi)
+            for i in range(0,len(losowe_pytanie)-1):
+                if i == 0:
+                    print(losowe_pytanie[i])
+                    print()
+                else:
+                    print(losowe_pytanie[i])
+            print()
 
             odp = input("Podaj prawidłową odpowiedź: ")
-            odpowiedz_uczestnika = pytanie_huberta(odp)
+            odpowiedz_uczestnika = que.pytanie_huberta(odp,losowe_pytanie)
 
             if odpowiedz_uczestnika == losowe_pytanie[5]:
                         licznik_dobrych_odpowiedzi +=1
-                        print("Dobra odpowiedź!\n")
+                        dobrze()
                         time.sleep(2)
                         os.system('cls')
             else:
-                print("Zła odpowiedź. Przegrałeś")
+                przegrales()
                 break
                 print("")
 
     if licznik_dobrych_odpowiedzi == 12:
-        print("Brawo! Wygrałeś MILION ZŁOTYCH!")
+        utwor(licznik_dobrych_odpowiedzi)
+        wygrales()
+        ok = input()
         break
 
 
