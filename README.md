@@ -3,7 +3,13 @@ M i l i o n e r z y
 - Wojtek Pachowiak
 - Piotr Jaworski
 
-Potrzebujemy:
-a) więcej pytań
-b) kół ratunkowych
-c) progów gwrantowanych
+UWAGA!!!
+Potrzebne są te moduły:
+
+pip install keyboard
+pip install colorama
+pip install pygame
+pip install 
+
+POTRZEBUJEMY WYGRANIA GWARANTOWANEJ KASY!
+
