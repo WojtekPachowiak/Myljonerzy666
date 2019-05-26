@@ -1,8 +1,8 @@
-WSZYSTKO SKOŃCZONE!
-Co pobieramy? MILIONERZY.py, funkcje.py, kingakola.py, publicznosc.py, intro.mp3, tlo.mp3, tlo2.mp3, tlo3.mp3,
-
-UWAGA!!!
-Potrzebne są te moduły:
+Projekt grupowy "milionerzy".
+Autorzy: Kinga Flak, Wojtek Pachowiak, Piotr Jaworski.
+Należy pobrać archiwum i wypakować do wspólnego folderu tylko te pliki: MILIONERZY.py, funkcje.py, kingakola.py, publicznosc.py, intro.mp3, tlo.mp3, tlo2.mp3, tlo3.mp3,
+("MILIONERZY.py" ~ caps lockiem!)
+Ponadto potrzebne są te moduły:
 
 pip install keyboard
 pip install colorama
