@@ -352,6 +352,13 @@ Hub = colored("         Hubert: ","yellow")
 while True:
     ###### PYTANIA LOSOWANE Z LISTY ŁATWYCH ###### ~ Piotr
     utwor(licznik_dobrych_odpowiedzi)
+    if licznik_dobrych_odpowiedzi > 0 and licznik_dobrych_odpowiedzi < 12:
+        print()
+        o_ile_gram(licznik_dobrych_odpowiedzi)
+        tabelka_o_ile_gram(licznik_dobrych_odpowiedzi)
+        time.sleep(1)
+        os.system('cls')
+
     if licznik_dobrych_odpowiedzi <= 6:
         losowe_pytanie = random.choice(lista_easy)
         if losowe_pytanie not in lista_już_wylosowanych:
@@ -376,11 +383,15 @@ while True:
                         dobrze()
                         time.sleep(2)
                         os.system('cls')
+            elif licznik_dobrych_odpowiedzi >=2:
+                przegrales()
+                print(colored("                                        Wygrywasz 1000zł!","green"))
+                break
+                print("")
             else:
                 przegrales()
                 break
                 print("")
-
 
 
     ###### PYTANIE LOSOWANE Z LISTY ŚREDNICH ###### ~ Piotr
@@ -407,7 +418,15 @@ while True:
                         dobrze()
                         time.sleep(2)
                         os.system('cls')
+            elif licznik_dobrych_odpowiedzi >=7:
+                przegrales()
+                print(colored("                                        Wygrywasz 40 000zł!","green"))
+                break
+                print("")
             else:
+                przegrales()
+                break
+                print("")
                 przegrales()
                 break
                 print("")
@@ -438,6 +457,11 @@ while True:
                         dobrze()
                         time.sleep(2)
                         os.system('cls')
+            elif licznik_dobrych_odpowiedzi >=2:
+                przegrales()
+                print(colored("                                        Wygrywasz 40 000zł!","green"))
+                break
+                print("")
             else:
                 przegrales()
                 break
