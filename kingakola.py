@@ -13,35 +13,19 @@ def pol_na_pol(pytanie):
     if pytanie[5] == 'A':
         print(Hu, "Pozostałe odpowiedzi to:", pytanie[1], pytanie[3])
         print(Hu, "Tylko, która z tych dwóch odpowiedzi jest prawidłowa?")
-        odpowiedz = input()
-        if odpowiedz == 'A':
-            print(Hu, "Tak, A jest prawidłową odpowiedzią!")
-        else:
-            print(Hu, "Niestety, nie udało się. :(")
+
     elif pytanie[5] == 'B':
         print(Hu, "Pozostałe odpowiedzi to:", pytanie[2], pytanie[4])
         print(Hu, "Tylko, która z tych dwóch odpowiedzi jest prawidłowa?")
-        odpowiedz = input()
-        if odpowiedz == 'B':
-            print(Hu, "Dokładnie tak! B to prawidłowa odpowiedź!")
-        else:
-            print(Hu, "Pańska droga do miliona się zakończyła. ")
+
     elif pytanie[5] == 'C':
         print(Hu, "Pozostałe odpowiedzi to:", pytanie[3], pytanie[2])
         print(Hu, "Tylko, która z tych dwóch odpowiedzi jest prawidłowa?")
-        odpowiedz = input()
-        if odpowiedz == 'C':
-            print(Hu, "Doskonale!")
-        else:
-            print(Hu, "Nie, to nie jest prawidłowa odpowiedź.")
+
     elif pytanie[5] == 'D':
         print(Hu, "Pozostałe odpowiedzi to:", pytanie[4], pytanie[1])
         print(Hu, "Tylko, która z tych dwóch odpowiedzi jest prawidłowa?")
-        odpowiedz = input()
-        if odpowiedz == 'D':
-            print(Hu, "Gratulacje! Mądrze Pan wybrał!")
-        else:
-            print(Hu, "No cóż, nie udało się.")
+
 
 #to jeszcze do przerobienia
 def telefon(pytanie):
