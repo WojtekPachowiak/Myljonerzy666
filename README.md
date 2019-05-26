@@ -9,7 +9,7 @@ Potrzebne są te moduły:
 pip install keyboard
 pip install colorama
 pip install pygame
-pip install 
+
 
 POTRZEBUJEMY WYGRANIA GWARANTOWANEJ KASY!
 
