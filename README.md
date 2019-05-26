@@ -1,7 +1,4 @@
-M i l i o n e r z y
-- Kinga Flak
-- Wojtek Pachowiak
-- Piotr Jaworski
+Co pobieramy? MILIONERZY.py, funkcje.py, kingakola.py, publicznosc.py, intro.mp3, tlo.mp3, tlo2.mp3, tlo3.mp3,
 
 UWAGA!!!
 Potrzebne są te moduły:
