@@ -1,7 +1,11 @@
 import time
 import keyboard
 import os
+from colorama import init
 from colorama import Fore, Back, Style
+from termcolor import colored
+init()
+
 ################################################################################
 def intro():
     time.sleep(1)
@@ -109,29 +113,29 @@ def witaj():
 
 def o_ile_gram(x):
     if x == 0:
-        print("          Grasz o 500zł!\n")
+        print("             Grasz o 500zł!\n")
     if x == 1:
-        print("          Grasz o GWARANTOWANE 1000zł!\n")
+        print("              Grasz o GWARANTOWANE 1000zł!\n")
     if x == 2:
-        print("          Grasz o 2000zł!\n")
+        print("             Grasz o 2000zł!\n")
     if x == 3:
-        print("          Grasz o 5000zł!\n")
+        print("             Grasz o 5000zł!\n")
     if x == 4:
-        print("          Grasz o 10 000zł!\n")
+        print("              Grasz o 10 000zł!\n")
     if x == 5:
-        print("          Grasz o 20 000zł!\n")
+        print("              Grasz o 20 000zł!\n")
     if x == 6:
-        print("          Grasz o GWARANTOWANE 40 000zł!\n")
+        print("              Grasz o GWARANTOWANE 40 000zł!\n")
     if x == 7:
-        print("          Grasz o 75 000zł!\n")
+        print("              Grasz o 75 000zł!\n")
     if x == 8:
-        print("          Grasz o 125 000zł!\n")
+        print("              Grasz o 125 000zł!\n")
     if x == 9:
-        print("          Grasz o 250 000zł!\n")
+        print("              Grasz o 250 000zł!\n")
     if x == 10:
-        print("          Grasz o 500 000zł!\n")
+        print("              Grasz o 500 000zł!\n")
     if x == 11:
-        print("          Grasz o MILION!\n")
+        print("              Grasz o MILION!\n")
 
 
 
@@ -161,7 +165,7 @@ def przegrales():
                 |_|   |_| \_\/____|_____\____|_| \_\/_/   \_\_____|_____|____/  (_) |
                                                                                    \_\
 """)
-print(Style.RESET_ALL)
+    print(Style.RESET_ALL)
 
 def wygrales():
     print(Fore.GREEN + """\n
@@ -191,4 +195,28 @@ def dobrze():
                      | |__| | (_) | |_) | |   / /  __/_|
                      |_____/ \___/|_.__/|_|  /___\___(_)
         """)
+    print(Style.RESET_ALL)
+
+
+
+def tabelka_o_ile_gram(x):
+    tablica = ["                12. [ 1 000 000 ]",
+    "                11.   500 000",
+    "                10.   250 000",
+    "                9.    125 000",
+    "                8.    75 00",
+    "                7. (( 40 000 ))",
+    "                6.    20 000",
+    "                5.    10 000",
+    "                4.    5 000",
+    "                3.    2 000",
+    "                2. (( 1 000 ))",
+    "                1.    500"]
+
+    dlugosc = len(tablica) - x
+    print("\n")
+    for i in range(0, dlugosc):
+        print(tablica[i])
+    for i in range(dlugosc,len(tablica)):
+        print(Fore.GREEN + (tablica[i]))
     print(Style.RESET_ALL)
