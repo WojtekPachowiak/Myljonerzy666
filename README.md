@@ -1,3 +1,4 @@
+WSZYSTKO SKOŃCZONE! ~~ Piotr
 Co pobieramy? MILIONERZY.py, funkcje.py, kingakola.py, publicznosc.py, intro.mp3, tlo.mp3, tlo2.mp3, tlo3.mp3,
 
 UWAGA!!!
@@ -7,6 +8,4 @@ pip install keyboard
 pip install colorama
 pip install pygame
 
-
-POTRZEBUJEMY WYGRANIA GWARANTOWANEJ KASY!
 
